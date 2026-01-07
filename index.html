@@ -182,6 +182,18 @@
                 <h2 class="fw-bold">Projects</h2>
             </div>
             <div class="row">
+                 <div class="col-md-6">
+                    <div class="card mb-4 p-3 shadow animate__animated animate__fadeInUp">
+                        <h5>SHAMBA METRICS Application</h5>
+                        <p>A Farm management sytem that uses laravel as backend and react as frontend with restful APIs wich aid in farm management available in google playstore and applestore.</p>
+                    </div>
+                </div>
+                 <div class="col-md-6">
+                    <div class="card mb-4 p-3 shadow animate__animated animate__fadeInUp">
+                        <h5>Collaborated in development of linkage sytem </h5>
+                        <p>Linkage sytem is a sytem to aid in refferal from ECHIS to KENYA EMR it was used in a study called C-it-Du-it  in Homabay county.</p>
+                    </div>
+                </div>
                 <div class="col-md-6">
                     <div class="card mb-4 p-3 shadow animate__animated animate__fadeInUp">
                         <h5>News Droid Application</h5>
@@ -258,13 +270,71 @@
                         <li>Spring Boot</li>
                         <li>And many other programming languages</li>
                     </ul>
-                </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8 mx-auto">
+                        <div class="card p-4 shadow animate__animated animate__fadeInUp">
+                            <h5>LARIAK DAY SECONDARY ScCHOOL</h5>
+                            <p><strong>BSc. Information Technology</strong></p>
+                            <p> 2015 - 2018</p>
+                            <p>Gained basic highschool knoledge aquring a c+grade</p>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
 </section>
 
-    <!-- Contact Section -->
+        <!-- CV Download / Upload Section -->
+        <section id="cv" class="py-5 bg-light">
+                <div class="container">
+                        <div class="text-center mb-4">
+                                <h2 class="fw-bold">Curriculum Vitae (CV)</h2>
+                        </div>
+                        <div class="row">
+                                <div class="col-md-6 mx-auto">
+                                        <div class="card p-4 shadow animate__animated animate__fadeInUp">
+                                                <h5>Download my CV</h5>
+                                                <p>
+                                                        <a id="cv-link" href="/uploads/cv.pdf" target="_blank" rel="noopener">Download CV</a>
+                                                </p>
+                                                <!-- <p id="cv-note">If no CV is available yet, upload it below.</p>
+                                                <hr>
+                                                <h6>Upload CV</h6>
+                                                <form action="upload.php" method="post" enctype="multipart/form-data">
+                                                        <label for="cv">Choose CV file (PDF, DOC, DOCX — max 5MB):</label>
+                                                        <input class="form-control" type="file" id="cv" name="cv" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required>
+                                                        <div style="margin-top:12px">
+                                                                <button class="btn btn-primary" type="submit">Upload</button>
+                                                        </div>
+                                                </form>
+                                                <p class="mt-2" style="font-size:0.9em;color:#666">Uploaded file is stored in <strong>/uploads/</strong>.</p> -->
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </section>
+
+        <script>
+            (function(){
+                fetch('/uploads/latest_cv.txt').then(function(res){
+                    if(!res.ok) throw new Error('no file');
+                    return res.text();
+                }).then(function(filename){
+                    filename = filename.trim();
+                    if(!filename) throw new Error('empty');
+                    var link = document.getElementById('cv-link');
+                    link.href = '/uploads/' + encodeURIComponent(filename);
+                    link.textContent = 'Download CV (' + filename.split('.').pop().toUpperCase() + ')';
+                    document.getElementById('cv-note').textContent = '';
+                }).catch(function(){
+                    // no uploaded CV found; keep default
+                });
+            })();
+        </script>
+
+        <!-- Contact Section -->
     <section id="contact" class="py-5">
         <div class="container">
             <div class="text-center mb-5">
@@ -275,7 +345,8 @@
                     <div class="card p-4 shadow animate__animated animate__fadeInUp">
                         <p><strong>Email:</strong> wathutasimon2019@gmail.com</p>
                         <p><strong>Phone:</strong> +254700635387</p>
-                        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com" target="_blank">Visit Profile</a></p>
+                        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/simon-wathuta-thiini/" target="_blank">Visit Profile</a></p>
+                        <p><strong>Github:</strong> <a href="https://github.com/simon-thiini" target="_blank">Visit Profile</a></p>
                         <div class="social-icons">
                             <a href="mailto:wathutasimon2019@gmail.com">
                                 <i class="fas fa-envelope"></i>
