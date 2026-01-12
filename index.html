@@ -3,38 +3,447 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simon Wathuta Thiini - Portfolio</title>
+    <title>Simon Wathuta Thiini - Software Engineer | ICT Officer | Health IT Specialist</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --dark-bg: #0f172a;
+            --light-bg: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
         }
 
-        .card:hover {
-            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
-            transform: translateY(-5px);
-            transition: all 0.3s ease-in-out;
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(15, 23, 42, 0.95) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            background: var(--gradient-3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .nav-link {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #e2e8f0 !important;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #60a5fa !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-3);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        #about {
+            background: var(--light-bg);
+            color: var(--text-dark);
+            padding: 100px 0 80px;
+        }
+
+        #about h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        #about .lead {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            color: var(--text-light);
+        }
+
+        #about .card {
+            background: white;
+            border-left: 4px solid var(--primary-color);
+            border-radius: 15px;
+            color: var(--text-dark);
+            padding: 2rem;
+        }
+
+        #about .card h4 {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        #about a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        #about a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        /* Section Headings */
+        section {
+            padding: 80px 0;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--gradient-3);
+            border-radius: 2px;
+        }
+
+        /* Cards */
+        .card {
+            border: none;
+            border-radius: 15px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+            height: 100%;
+            background: white;
+        }
+
+        .card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            transform: translateY(-10px);
+        }
+
+        .card h5 {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Skills Section */
+        #skills {
+            background: white;
+        }
+
+        #skills .card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        #skills .card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        #skills .card li {
+            padding: 0.5rem 0;
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: all 0.3s ease;
+        }
+
+        #skills .card li:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        /* Experience Section */
+        #experience {
+            background: var(--light-bg);
+        }
+
+        #experience .card {
+            border-left: 4px solid var(--primary-color);
+        }
+
+        #experience .card h5 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        #experience .card strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        #experience ul {
+            margin-top: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        #experience li {
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+
+        /* Partners Section */
+        #partners {
+            background: white;
+        }
+
+        #partners .card {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            transition: all 0.3s ease;
+        }
+
+        #partners .card:hover {
+            background: var(--gradient-1);
+            color: white;
+        }
+
+        #partners .card:hover h5 {
+            color: white;
+        }
+
+        /* Projects Section */
+        #projects {
+            background: var(--light-bg);
+        }
+
+        #projects .card {
+            position: relative;
+            padding: 2rem;
+        }
+
+        #projects .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-3);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        #projects .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        #projects a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        #projects a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        /* Education Section */
+        #education {
+            background: white;
+        }
+
+        #education .card {
+            border-top: 4px solid var(--accent-color);
+        }
+
+        /* CV Section */
+        #cv {
+            background: var(--light-bg);
+        }
+
+        #cv .card {
+            text-align: center;
+            padding: 3rem;
+        }
+
+        #cv a {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--gradient-3);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        #cv a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Contact Section */
+        #contact {
+            background: var(--dark-bg);
+            color: white;
+        }
+
+        #contact h2 {
+            color: white;
+        }
+
+        #contact h2::after {
+            background: var(--gradient-3);
+        }
+
+        #contact .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        #contact .card p {
+            color: #e2e8f0;
             font-size: 1.1rem;
+            margin-bottom: 1rem;
         }
 
-        footer {
-            background-color: #343a40;
-            color: #ffffff;
-            padding: 20px 0;
+        #contact .card strong {
+            color: #60a5fa;
         }
 
-        footer a {
-            color: #ffffff;
+        #contact a {
+            color: #60a5fa;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        #contact a:hover {
+            color: #93c5fd;
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .social-icons a {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+        }
+
+        .social-icons a:hover {
+            background: var(--gradient-3);
+            transform: translateY(-5px);
             text-decoration: none;
         }
 
+        /* Footer */
+        footer {
+            background: #0a0e1a;
+            color: #94a3b8;
+            padding: 30px 0;
+        }
+
+        footer a {
+            color: #60a5fa;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
         footer a:hover {
+            color: #93c5fd;
             text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #about h1 {
+                font-size: 2.5rem;
+            }
+
+            #about .lead {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            #skills ul {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -61,16 +470,26 @@
     </nav>
 
     <!-- Profile Section -->
-    <section id="about" class="py-5">
+    <section id="about">
         <div class="container">
             <div class="text-center mb-5">
-                <h1 class="fw-bold animate__animated animate__fadeInDown">Welcome to My Portfolio</h1>
-                <p class="lead">Full Stack Developer | Web Developer | IT Support Specialist | Office Administrator</p>
+                <h1 class="fw-bold animate__animated animate__fadeInDown">SIMON WATHUTA THIINI</h1>
+                <p class="lead animate__animated animate__fadeInUp">Software Engineer | ICT Officer | Health IT Specialist | Network Administrator</p>
+                <div class="mt-4 animate__animated animate__fadeInUp">
+                    <p class="mb-2"><i class="fas fa-envelope me-2 text-primary"></i>wathutasimon2019@gmail.com</p>
+                    <p class="mb-2"><i class="fas fa-phone me-2 text-primary"></i>+254 700 635 387</p>
+                    <p class="mb-0"><i class="fas fa-globe me-2 text-primary"></i><a href="https://simon-thiini.github.io/potifolio/" target="_blank">simon-thiini.github.io/potifolio/</a></p>
+                </div>
             </div>
             <div class="row">
-                <div class="col-md-6 mx-auto">
-                    <div class="card p-4 shadow animate__animated animate__zoomIn">
-                        <p>With years of hands-on experience in Information and Communication Technology (ICT), I bring a wealth of expertise to roles such as ICT Officer, Software Developer, Network Administrator, and Web Developer. My background includes collaborating effectively with teams, analyzing user requirements, and deploying high-quality software solutions. Additionally, I have demonstrated proficiency in network administration, troubleshooting, and developing mobile and web applications using various programming languages and frameworks.</p>
+                <div class="col-lg-10 mx-auto">
+                    <div class="card animate__animated animate__zoomIn">
+                        <div class="card-body">
+                            <h4 class="mb-4" style="font-weight: 600;">PROFESSIONAL SUMMARY</h4>
+                            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">Software Engineer and ICT Specialist with close to 3 years of practical experience in software development, digital health systems, and ICT support. I have contributed to impactful health informatics projects, including national health digital systems and community-facility linkage platforms.</p>
+                            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">At Gold in Data, I supported implementation and deployment of digital health tools in partnership with organizations such as LVCT Health and KEMRI, assisting in research studies aimed at improving healthcare service delivery and data management.</p>
+                            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 0;">My strengths include full-stack development, health IT system deployment, technical training, user support, and collaboration with cross-disciplinary teams in both public and private sectors.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -78,25 +497,47 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-5 bg-light">
+    <section id="skills">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="fw-bold">Competence and Skills</h2>
+                <h2 class="fw-bold">Core Skills</h2>
             </div>
-            <div class="row">
-                <div class="col-md-10 mx-auto">
-                    <div class="card p-4 shadow animate__animated animate__fadeInUp">
-                        <ul>
-                            <li>Problem-solving skills</li>
-                            <li>Strong analytical skills</li>
-                            <li>Customer relation skills</li>
-                            <li>Communication skills</li>
-                            <li>Networking</li>
-                            <li>Repair and troubleshooting (hardware and software)</li>
-                            <li>Web development and design</li>
-                            <li>System design and development</li>
-                            <li>Mobile application development</li>
-                            <li>Hardware programming for IoT</li>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="card h-100 p-4 animate__animated animate__fadeInUp">
+                        <h5 class="mb-4"><i class="fas fa-code text-primary me-2"></i>Software Development</h5>
+                        <ul style="list-style: none; padding: 0;">
+                            <li>✓ Software Development</li>
+                            <li>✓ Full Stack Development</li>
+                            <li>✓ API Development & Integration</li>
+                            <li>✓ System Design & Architecture</li>
+                            <li>✓ Health Informatics Systems</li>
+                            <li>✓ Testing, Debugging & QA</li>
+                            <li>✓ Version Control (Git)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card h-100 p-4 animate__animated animate__fadeInUp">
+                        <h5 class="mb-4"><i class="fas fa-network-wired text-primary me-2"></i>ICT & Networking</h5>
+                        <ul style="list-style: none; padding: 0;">
+                            <li>✓ Network Administration</li>
+                            <li>✓ Installation & Configuration</li>
+                            <li>✓ Systems Deployment</li>
+                            <li>✓ Technical Support & Helpdesk</li>
+                            <li>✓ Security Best Practices</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card h-100 p-4 animate__animated animate__fadeInUp">
+                        <h5 class="mb-4"><i class="fas fa-users text-primary me-2"></i>Soft Skills</h5>
+                        <ul style="list-style: none; padding: 0;">
+                            <li>✓ Training & Capacity Building</li>
+                            <li>✓ User Support & Customer Service</li>
+                            <li>✓ Documentation & Reporting</li>
+                            <li>✓ Research & Data Analysis</li>
+                            <li>✓ Problem Solving & Communication</li>
                         </ul>
                     </div>
                 </div>
@@ -105,37 +546,78 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-5">
+    <section id="experience">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="fw-bold">Experience</h2>
+                <h2 class="fw-bold">Professional Experience</h2>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card mb-4 p-3 shadow animate__animated animate__fadeInLeft">
-                        <h5>Gold in Data</h5>
-                        <p><strong>Software Developer</strong></p>
-                        <p>August 2023 - Present</p>
+            <div class="row g-4">
+                <div class="col-lg-12">
+                    <div class="card p-4 animate__animated animate__fadeInUp">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-briefcase fa-2x text-primary me-3"></i>
+                            <div>
+                                <h5 class="mb-0">Gold in Data</h5>
+                                <p class="text-muted mb-0"><small>August 9, 2023 – Present</small></p>
+                            </div>
+                        </div>
+                        <p class="mb-3"><strong>Software Developer / Health IT Support</strong></p>
+                        <p class="mb-3">At Gold in Data, I worked on both software development and digital health systems deployment, focusing on improving healthcare service delivery through technology.</p>
+                        <h6 class="mb-3" style="color: var(--primary-color);">Key Responsibilities & Achievements:</h6>
                         <ul>
-                            <li>Collaborate with cross-functional teams including developers, designers, and system administrators.</li>
-                            <li>Analyze end-users' requirements and translate them into software specifications.</li>
-                            <li>Debug, troubleshoot, and resolve software defects and issues.</li>
-                            <li>Utilize version control systems to manage and track changes to source code.</li>
-                            <li>Implement security best practices and deploy software applications to production environments.</li>
+                            <li>Supported the implementation of the C-it DU-it study, a collaborative research project by LVCT Health and KEMRI focused on improving antenatal care uptake and quality in Homa Bay County through digital community-to-facility data linkage.</li>
+                            <li>Provided technical assistance and training for digital health platforms including Kenya EMR (Taifa Care), Electronic Community Health Information System (eCHIS), and the internally developed Linkage System that monitors patient referrals between community health volunteers and health facilities.</li>
+                            <li>Conducted hands-on training sessions for healthcare workers and community health volunteers on system use, data entry, referral tracking, and follow-up procedures.</li>
+                            <li>Troubleshot and resolved technical issues during field deployments, ensuring system reliability, data integrity, and compliance with health data security protocols.</li>
+                            <li>Collaborated closely with project researchers, health teams, and system developers to monitor system usage, gather feedback, and support iterative improvements to digital health solutions.</li>
+                            <li>Participated in software development activities including bug fixing, feature enhancements, and deployment of updated releases to production environments.</li>
+                            <li>Developed RESTful APIs and integrated third-party services to enhance system capabilities.</li>
+                            <li>Managed version control using Git, ensuring smooth collaboration and deployment workflows.</li>
+                            <li>Assisted in database design, optimization, and maintenance to support application performance and data integrity.</li>
+                            <li>Participated in agile ceremonies including sprint planning, stand-ups, and retrospectives to ensure continuous delivery and improvement.</li>
+                            <li>Stayed updated with emerging technologies and recommended improvements to existing systems and processes.</li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card mb-4 p-3 shadow animate__animated animate__fadeInRight">
-                        <h5>County Government of Laikipia</h5>
-                        <p><strong>Software Developer and IT Practitioner</strong></p>
-                        <p>June 2022 - September 2022</p>
+                <div class="col-lg-6">
+                    <div class="card h-100 p-4 animate__animated animate__fadeInLeft">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-industry fa-2x text-primary me-3"></i>
+                            <div>
+                                <h5 class="mb-0">Nanyuki Paper Industries</h5>
+                                <p class="text-muted mb-0"><small>July 31, 2023 – August 4, 2023</small></p>
+                            </div>
+                        </div>
+                        <p class="mb-3"><strong>Casual Labour</strong></p>
+                        <h6 class="mb-3" style="color: var(--primary-color);">Key Responsibilities:</h6>
                         <ul>
-                            <li>Maintained and troubleshot network infrastructure including routers, switches, and firewalls.</li>
-                            <li>Developed software solutions using Java and Visual Basic.</li>
-                            <li>Provided staff training on technology and handled hardware/software repair tasks.</li>
-                            <li>Conducted data management and presented IT project recommendations.</li>
-                            <li>Documented system configurations and ensured compliance with security standards.</li>
+                            <li>Handled customer interactions and supported order processing.</li>
+                            <li>Assisted in production processes, including material handling and machine support.</li>
+                            <li>Participated in packaging, labeling, and quality checks.</li>
+                            <li>Maintained and arranged store inventory to support operational workflows.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card h-100 p-4 animate__animated animate__fadeInRight">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-building fa-2x text-primary me-3"></i>
+                            <div>
+                                <h5 class="mb-0">Laikipia County Government</h5>
+                                <p class="text-muted mb-0"><small>May 30, 2022 – September 1, 2022</small></p>
+                            </div>
+                        </div>
+                        <p class="mb-3"><strong>ICT Intern / Probation Officer</strong></p>
+                        <h6 class="mb-3" style="color: var(--primary-color);">Key Responsibilities:</h6>
+                        <ul>
+                            <li>Maintained and troubleshot routers, switches, and firewalls.</li>
+                            <li>Participated in software development projects (Hospital System, Inventory System) using Java and Visual Basic.</li>
+                            <li>Conducted research to improve ICT infrastructure and presented recommendations.</li>
+                            <li>Repaired and maintained hardware and software assets.</li>
+                            <li>Trained staff on ICT systems and digital tools.</li>
+                            <li>Offered user support for network, system, and application issues.</li>
+                            <li>Assisted in IT project management and documentation.</li>
+                            <li>Ensured system and network security compliance.</li>
                         </ul>
                     </div>
                 </div>
@@ -144,176 +626,223 @@
     </section>
 
     <!-- Partners Section -->
-<section id="partners" class="py-5">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="fw-bold">Partners</h2>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card p-3 shadow animate__animated animate__fadeIn">
-                    <h5 class="text-center">KEMRI</h5>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card p-3 shadow animate__animated animate__fadeIn">
-                    <h5 class="text-center">LVCT Health</h5>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card p-3 shadow animate__animated animate__fadeIn">
-                    <h5 class="text-center">Imani Health Insurance</h5>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="card p-3 shadow animate__animated animate__fadeIn">
-                    <h5 class="text-center">Gold in data</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-     <!-- Projects Section -->
-     <section id="projects" class="py-5 bg-light">
+    <section id="partners">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="fw-bold">Projects</h2>
+                <h2 class="fw-bold">Partners & Collaborations</h2>
             </div>
-            <div class="row">
-                 <div class="col-md-6">
-                    <div class="card mb-4 p-3 shadow animate__animated animate__fadeInUp">
-                        <h5>SHAMBA METRICS Application</h5>
-                        <p>A Farm management sytem that uses laravel as backend and react as frontend with restful APIs wich aid in farm management available in google playstore and applestore.</p>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 animate__animated animate__fadeIn">
+                        <div class="card-body d-flex align-items-center justify-content-center">
+                            <h5 class="mb-0">KEMRI</h5>
+                        </div>
                     </div>
                 </div>
-                 <div class="col-md-6">
-                    <div class="card mb-4 p-3 shadow animate__animated animate__fadeInUp">
-                        <h5>Collaborated in development of linkage sytem </h5>
-                        <p>Linkage sytem is a sytem to aid in refferal from ECHIS to KENYA EMR it was used in a study called C-it-Du-it  in Homabay county.</p>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 animate__animated animate__fadeIn">
+                        <div class="card-body d-flex align-items-center justify-content-center">
+                            <h5 class="mb-0">LVCT Health</h5>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card mb-4 p-3 shadow animate__animated animate__fadeInUp">
-                        <h5>News Droid Application</h5>
-                        <p>An application that uses APIs to fetch news. Built using Java.</p>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 animate__animated animate__fadeIn">
+                        <div class="card-body d-flex align-items-center justify-content-center">
+                            <h5 class="mb-0">Imani Health Insurance</h5>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card mb-4 p-3 shadow animate__animated animate__fadeInUp">
-                        <h5>Women Health Application</h5>
-                        <p>A mobile app that tracks periods and weight. Built using Java.</p>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 animate__animated animate__fadeIn">
+                        <div class="card-body d-flex align-items-center justify-content-center">
+                            <h5 class="mb-0">Gold in Data</h5>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card mb-4 p-3 shadow animate__animated animate__fadeInUp">
-                        <h5>Automatic Water System</h5>
-                        <p>Uses sensors to operate a water tank and irrigation system.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Featured Projects</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 animate__animated animate__fadeInUp">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-mobile-alt fa-2x text-primary"></i>
+                            </div>
+                            <h5>SHAMBA METRICS Application</h5>
+                            <p>A Farm management system that uses Laravel as backend and React as frontend with RESTful APIs which aid in farm management. Available in Google Play Store and Apple Store.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card mb-4 p-3 shadow animate__animated animate__fadeInUp">
-                        <h5>In-House Water Controller</h5>
-                        <p>Operates smart water taps, ensuring efficient water usage.</p>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 animate__animated animate__fadeInUp">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-link fa-2x text-primary"></i>
+                            </div>
+                            <h5>Linkage System</h5>
+                            <p>Collaborated in development of linkage system to aid in referral from ECHIS to KENYA EMR. It was used in a study called C-it-Du-it in Homabay county.</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card mb-4 p-3 shadow animate__animated animate__fadeInUp">
-                        <h5>Explore More Projects</h5>
-                        <p>Check out some additional projects and resources:</p>
-                        <ul>
-                            <li><a href="https://shambametrics.com/" target="_blank" rel="noopener noreferrer">sample 1</a></li>
-                            <li><a href="https://oldschool.000.pe/" target="_blank" rel="noopener noreferrer">sample 2</a></li>
-                            <li><a href="https://4s-tech.42web.io/" target="_blank" rel="noopener noreferrer">sample 3</a></li>
-                        </ul>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 animate__animated animate__fadeInUp">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-newspaper fa-2x text-primary"></i>
+                            </div>
+                            <h5>News Droid Application</h5>
+                            <p>An application that uses APIs to fetch news. Built using Java.</p>
+                        </div>
                     </div>
                 </div>
-                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 animate__animated animate__fadeInUp">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-heartbeat fa-2x text-primary"></i>
+                            </div>
+                            <h5>Women Health Application</h5>
+                            <p>A mobile app that tracks periods and weight. Built using Java.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 animate__animated animate__fadeInUp">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-tint fa-2x text-primary"></i>
+                            </div>
+                            <h5>Automatic Water System</h5>
+                            <p>Uses sensors to operate a water tank and irrigation system.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 animate__animated animate__fadeInUp">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-faucet fa-2x text-primary"></i>
+                            </div>
+                            <h5>In-House Water Controller</h5>
+                            <p>Operates smart water taps, ensuring efficient water usage.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card animate__animated animate__fadeInUp">
+                        <div class="card-body">
+                            <h5><i class="fas fa-external-link-alt me-2"></i>Explore More Projects</h5>
+                            <p class="mb-3">Check out some additional projects and resources:</p>
+                            <div class="d-flex flex-wrap gap-3">
+                                <a href="https://shambametrics.com/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">
+                                    <i class="fas fa-globe me-2"></i>Shamba Metrics
+                                </a>
+                                <a href="https://oldschool.000.pe/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">
+                                    <i class="fas fa-globe me-2"></i>Old School
+                                </a>
+                                <a href="https://4s-tech.42web.io/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary">
+                                    <i class="fas fa-globe me-2"></i>4S Tech
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Education Section -->
-   <!-- Education Section -->
-<section id="education" class="py-5 bg-light">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h2 class="fw-bold">Education</h2>
-        </div>
-        <div class="row">
-            <div class="col-md-8 mx-auto">
-                <div class="card p-4 shadow animate__animated animate__fadeInUp">
-                    <h5>South Eastern Kenya University</h5>
-                    <p><strong>BSc. Information Technology</strong></p>
-                    <p>August 2019 - April 2023</p>
-                    <p>Gained comprehensive knowledge in IT, focusing on software development, network administration, and modern web technologies.</p>
-                </div>
+    <section id="education">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Education & Certifications</h2>
             </div>
-            <!-- New Certification Card -->
-            <div class="col-md-8 mx-auto mt-4">
-                <div class="card p-4 shadow animate__animated animate__fadeInUp">
-                    <h5>Huawei Cloud Computing 4.0 Certification</h5>
-                    <p><strong>Cloud Computing Specialist</strong></p>
-                    <p>Completed a comprehensive certification on Huawei Cloud Computing 4.0, focusing on cloud technologies and solutions.</p>
-                    <h5>DHIS certification</h5>
-                    <p>DHIS2 is a tool for collection, validation, analysis, and presentation of aggregate and patient-based statistical data, tailored (but not limited) to integrated health information management activities.</p>
-                    
-                    <p><strong>Technologies Familiar with:</strong></p>
-                    <ul>
-                        <li>APIs</li>
-                        <li>Java</li>
-                        <li>PHP</li>
-                        <li>React</li>
-                        <li>Ionic</li>
-                        <li>Laravel</li>
-                        <li>Spring Boot</li>
-                        <li>And many other programming languages</li>
-                    </ul>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card h-100 p-4 animate__animated animate__fadeInUp">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-graduation-cap fa-2x text-primary me-3"></i>
+                            <div>
+                                <h5 class="mb-0">South Eastern Kenya University</h5>
+                                <p class="text-muted mb-0"><small>2019 – 2023 (Graduated October 2023)</small></p>
+                            </div>
+                        </div>
+                        <p class="mb-2"><strong>Bachelor of Science in Information Technology</strong></p>
+                        <p>Gained comprehensive knowledge in IT, focusing on software development, network administration, and modern web technologies.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card h-100 p-4 animate__animated animate__fadeInUp">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-school fa-2x text-primary me-3"></i>
+                            <div>
+                                <h5 class="mb-0">Lariak Day Secondary School</h5>
+                                <p class="text-muted mb-0"><small>2015 – 2018</small></p>
+                            </div>
+                        </div>
+                        <p class="mb-2"><strong>KCSE</strong></p>
+                        <p>Completed high school education with strong foundation in core subjects.</p>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="card p-4 animate__animated animate__fadeInUp">
+                        <h5 class="mb-4"><i class="fas fa-certificate text-primary me-2"></i>Certifications</h5>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="p-3 bg-light rounded">
+                                    <h6 class="mb-2"><strong>HCIA – Cloud Computing 4.0</strong></h6>
+                                    <p class="mb-0 small">Huawei Certified ICT Associate in Cloud Computing 4.0</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="p-3 bg-light rounded">
+                                    <h6 class="mb-2"><strong>DHIS2 Training</strong></h6>
+                                    <p class="mb-0 small">University of Oslo - DHIS2 is a tool for collection, validation, analysis, and presentation of aggregate and patient-based statistical data, tailored to integrated health information management activities.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-            </div>
-            <div class="col-md-8 mx-auto mt-4">
-                <div class="card p-4 shadow animate__animated animate__fadeInUp">
-                    <h5>LARIAK DAY SECONDARY ScCHOOL</h5>
-                    <p><strong>BSc. Information Technology</strong></p>
-                    <p> 2015 - 2018</p>
-                    <p>Gained basic highschool knoledge aquring a c+grade</p>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-        <!-- CV Download / Upload Section -->
-        <section id="cv" class="py-5 bg-light">
-                <div class="container">
-                        <div class="text-center mb-4">
-                                <h2 class="fw-bold">Curriculum Vitae (CV)</h2>
+    <!-- CV Download Section -->
+    <section id="cv">
+        <div class="container">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold">Curriculum Vitae</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div class="card animate__animated animate__fadeInUp">
+                        <div class="card-body">
+                            <div class="text-center mb-4">
+                                <i class="fas fa-file-pdf fa-4x text-danger mb-3"></i>
+                                <h5 class="mb-3">Download my CV</h5>
+                                <p class="text-muted">Get a detailed overview of my professional experience and qualifications</p>
+                            </div>
+                            <div class="text-center">
+                                <a id="cv-link" href="/uploads/cv.pdf" target="_blank" rel="noopener">
+                                    <i class="fas fa-download me-2"></i>Download CV
+                                </a>
+                            </div>
                         </div>
-                        <div class="row">
-                                <div class="col-md-6 mx-auto">
-                                        <div class="card p-4 shadow animate__animated animate__fadeInUp">
-                                                <h5>Download my CV</h5>
-                                                <p>
-                                                        <a id="cv-link" href="/uploads/cv.pdf" target="_blank" rel="noopener">Download CV</a>
-                                                </p>
-                                                <!-- <p id="cv-note">If no CV is available yet, upload it below.</p>
-                                                <hr>
-                                                <h6>Upload CV</h6>
-                                                <form action="upload.php" method="post" enctype="multipart/form-data">
-                                                        <label for="cv">Choose CV file (PDF, DOC, DOCX — max 5MB):</label>
-                                                        <input class="form-control" type="file" id="cv" name="cv" accept="application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" required>
-                                                        <div style="margin-top:12px">
-                                                                <button class="btn btn-primary" type="submit">Upload</button>
-                                                        </div>
-                                                </form>
-                                                <p class="mt-2" style="font-size:0.9em;color:#666">Uploaded file is stored in <strong>/uploads/</strong>.</p> -->
-                                        </div>
-                                </div>
-                        </div>
+                    </div>
                 </div>
-        </section>
+            </div>
+        </div>
+    </section>
 
         <script>
             (function(){
@@ -333,22 +862,72 @@
             })();
         </script>
 
-        <!-- Contact Section -->
-    <section id="contact" class="py-5">
+    <!-- Contact Section -->
+    <section id="contact">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="fw-bold">Contact</h2>
+                <h2 class="fw-bold">Get In Touch</h2>
+                <p class="lead">I'm always open to discussing new projects and opportunities</p>
             </div>
             <div class="row">
-                <div class="col-md-6 mx-auto">
-                    <div class="card p-4 shadow animate__animated animate__fadeInUp">
-                        <p><strong>Email:</strong> wathutasimon2019@gmail.com</p>
-                        <p><strong>Phone:</strong> +254700635387</p>
-                        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/simon-wathuta-thiini/" target="_blank">Visit Profile</a></p>
-                        <p><strong>Github:</strong> <a href="https://github.com/simon-thiini" target="_blank">Visit Profile</a></p>
-                        <div class="social-icons">
-                            <a href="mailto:wathutasimon2019@gmail.com">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card p-4 animate__animated animate__fadeInUp">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start">
+                                    <i class="fas fa-envelope fa-2x text-primary me-3 mt-1"></i>
+                                    <div>
+                                        <h6 class="mb-1">Email</h6>
+                                        <a href="mailto:wathutasimon2019@gmail.com">wathutasimon2019@gmail.com</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start">
+                                    <i class="fas fa-phone fa-2x text-primary me-3 mt-1"></i>
+                                    <div>
+                                        <h6 class="mb-1">Phone</h6>
+                                        <a href="tel:+254700635387">+254 700 635 387</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start">
+                                    <i class="fab fa-linkedin fa-2x text-primary me-3 mt-1"></i>
+                                    <div>
+                                        <h6 class="mb-1">LinkedIn</h6>
+                                        <a href="https://www.linkedin.com/in/simon-wathuta-thiini/" target="_blank">Visit Profile</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start">
+                                    <i class="fab fa-github fa-2x text-primary me-3 mt-1"></i>
+                                    <div>
+                                        <h6 class="mb-1">GitHub</h6>
+                                        <a href="https://github.com/simon-thiini" target="_blank">Visit Profile</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex align-items-start">
+                                    <i class="fas fa-globe fa-2x text-primary me-3 mt-1"></i>
+                                    <div>
+                                        <h6 class="mb-1">Portfolio</h6>
+                                        <a href="https://simon-thiini.github.io/potifolio/" target="_blank">simon-thiini.github.io/potifolio/</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="social-icons mt-4">
+                            <a href="mailto:wathutasimon2019@gmail.com" title="Email">
                                 <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/simon-wathuta-thiini/" target="_blank" title="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/simon-thiini" target="_blank" title="GitHub">
+                                <i class="fab fa-github"></i>
                             </a>
                         </div>
                     </div>
@@ -360,11 +939,44 @@
     <!-- Footer -->
     <footer>
         <div class="container text-center">
-            <p>&copy; 2024 - Simon Wathuta Thiini. All Rights Reserved.</p>
-            <p><a href="https://linkedin.com">LinkedIn</a> | <a href="#contact">Contact</a></p>
+            <p class="mb-2">&copy; 2024 - Simon Wathuta Thiini. All Rights Reserved.</p>
+            <p class="mb-0">
+                <a href="https://www.linkedin.com/in/simon-wathuta-thiini/" target="_blank">LinkedIn</a> | 
+                <a href="#contact">Contact</a> | 
+                <a href="#about">About</a>
+            </p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scroll animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate__animated').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.2)';
+            } else {
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
 </body>
 </html>
